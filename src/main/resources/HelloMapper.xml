@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.dao.HelloMapper">
+    <select id="getEmpById" parameterType="Integer" resultType="com.my.domain.User">
+        SELECT * FROM tb_user WHERE t_id = #{arg0}
+    </select>
+</mapper>
