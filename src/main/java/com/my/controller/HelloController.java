@@ -2,16 +2,20 @@ package com.my.controller;
 
 import com.my.domain.User;
 import com.my.service.HelloService;
+import com.my.servlet.MyServletConetxt;
 import com.mysql.jdbc.log.LogFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 //controller层的注解 把此类注册到spring容器中
@@ -19,7 +23,8 @@ import java.util.List;
 public class HelloController {
     @Autowired
     HelloService helloService;
-
+   @Autowired
+    MyServletConetxt myServletConetxt;
     /**
      * helloworld
      * @return
@@ -28,7 +33,13 @@ public class HelloController {
     @ResponseBody
     //get请求的 /hello 的
     @GetMapping(value = "/hello")
-    String helloController(){
+    String helloController(HttpServletRequest request){
+
+        ServletContext servletContext = myServletConetxt.getServletContext();
+        int number = (int)servletContext.getAttribute("number");
+        System.out.println("这是第"+(++number)+"次请求");
+        servletContext.setAttribute("number",number);
+         helloService.testHttpGet("/hello");
   return "hello,world";
     }
 
