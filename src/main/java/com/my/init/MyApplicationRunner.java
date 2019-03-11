@@ -13,6 +13,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ import java.util.List;
  * @author blackjack
  * @date 2019/3/9/16:19
  */
+@Component
 public class MyApplicationRunner implements ApplicationRunner {
 
   @Autowired
@@ -29,5 +31,6 @@ public class MyApplicationRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
         myServletConetxt.getServletContext().setAttribute("number",1);
-}
+        System.out.printf("===============初始化成功========================");
+    }
 }

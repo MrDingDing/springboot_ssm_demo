@@ -22,9 +22,9 @@ import java.util.List;
 @Controller
 public class HelloController {
     @Autowired
-    HelloService helloService;
+   private  HelloService helloService;
    @Autowired
-    MyServletConetxt myServletConetxt;
+    private  MyServletConetxt myServletConetxt;
     /**
      * helloworld
      * @return
@@ -39,8 +39,11 @@ public class HelloController {
         int number = (int)servletContext.getAttribute("number");
         System.out.println("这是第"+(++number)+"次请求");
         servletContext.setAttribute("number",number);
-         helloService.testHttpGet("/hello");
-  return "hello,world";
+        System.out.println(request.getContextPath()+"/hello");
+        System.out.println(request.getRequestURI());
+        System.out.println(request.getRequestURL());
+         helloService.testHttpGet(request.getRequestURL().toString());
+  return "hello,world"+"这是第"+(++number)+"次请求";
     }
 
     /**模拟从数据库中查询一条数据
