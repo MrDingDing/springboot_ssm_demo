@@ -4,6 +4,7 @@ import com.my.domain.User;
 import com.my.service.HelloService;
 import com.my.servlet.MyServletConetxt;
 import com.mysql.jdbc.log.LogFactory;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,7 @@ public class HelloController {
     @ResponseBody
     //get请求的 /hello 的
     @GetMapping(value = "/hello")
+    @ApiOperation(value = "",notes = "",httpMethod = "POST")
     String helloController(HttpServletRequest request){
 
         ServletContext servletContext = myServletConetxt.getServletContext();
