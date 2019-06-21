@@ -31,4 +31,13 @@ public class User {
     public void setTid(int tid) {
         Tid = tid;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "Tid=" + Tid +
+                ", Tname='" + Tname + '\'' +
+                ", Tpwd='" + Tpwd + '\'' +
+                '}';
+    }
 }

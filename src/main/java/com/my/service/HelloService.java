@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class HelloService {
@@ -26,7 +27,12 @@ public class HelloService {
     HelloMapper helloMapper;
     public User selectById(Integer id) {
         System.out.printf(helloMapper.toString());
-        return  helloMapper.getEmpById(id);
+       // return  helloMapper.getEmpById(id);
+        User user = new User();
+        user.setTid(UUID.randomUUID().hashCode());
+        user.setTname("blackjack");
+        user.setTpwd("bj");
+        return user;
     }
 
 

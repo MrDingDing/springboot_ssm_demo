@@ -11,8 +11,6 @@ import java.util.Locale;
 public class MvcConfig {
 
     public View resolveViewName(String viewName, Locale locale) throws Exception {
-
-
         return null;
     }
 }
