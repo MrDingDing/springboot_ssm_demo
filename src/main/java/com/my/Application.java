@@ -16,6 +16,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 
 @SpringBootApplication
@@ -24,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class,DataSourceTransactionManagerAutoConfiguration.class,
         MongoDataAutoConfiguration.class,MongoAutoConfiguration.class})
 @MapperScan("com.my.dao")
+@EnableSwagger2
 public class Application extends SpringBootServletInitializer implements WebApplicationInitializer  {
 
     @Override
