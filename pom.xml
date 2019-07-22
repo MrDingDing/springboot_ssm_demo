@@ -154,6 +154,13 @@
         <!--</dependency>-->
         <!--end -->
 
+        <!--===========引入spring  security================-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <!--============ 引入 spring security end============-->
+
      <!--引入aop-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -176,8 +183,8 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
         </dependency>
+        <!--引入aop end-->
     </dependencies>
-    <!--引入aop end-->
     <build>
 
         <plugins>
